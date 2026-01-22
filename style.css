@@ -88,7 +88,7 @@ h1{
 #control button{
     background-color: transparent;
     border: none;
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
    
       
@@ -96,7 +96,7 @@ h1{
   
  margin-left:80px;
    
-    font-size: 40px;
+   
     color: #050505;
 }
 
@@ -151,6 +151,80 @@ right:450px;
     transition: all 0.3s ease;
 }
 
+#infocard {
+  background: white;
+  padding: 24px 28px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 380px;
+  position: relative;
+  height: auto;
+}
+
+#song-info h2 {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #777;
+  margin: 0;
+}
+
+#song-info h1 {
+  font-size: 22px;
+  margin: 4px 0 0;
+}
+
+#progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ margin-top: 30px;
+  margin-left: 670px;
+}
+
+.time {
+  font-size: 11px;
+  color: #999;
+  width: 30px;
+}
+
+#progress-track {
+  width: 220px;
+  height: 3px;
+  background: #e5e5e5;
+  border-radius: 10px;
+
+}
+
+#progress-bar {
+  height: 100%;
+  width: 55%;
+  background: #111;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  cursor: pointer;
+
+}
+
+#control {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#control button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#control .play {
+  font-size: 22px;
+}
 
 
 
