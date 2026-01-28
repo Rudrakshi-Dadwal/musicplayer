@@ -1,76 +1,88 @@
 let songdetails=[
    { title:"Zen",
     artist:"Jennie",
-
-    duration:"3:12"
-    imgsrc:"jennie.jpg"
-    songsrc:"zen.mp3"
+    duration:"3:12",
+    imagesrc:"covers1/jennie.jpg",
+    songsrc:"audio1/zen.mp3"
 
 },
 {
-    title:"MY Eyes ",
+    title:"MY Eyes",
     artist:"travis Scott",
-  imgsrc:"utopia.jpg"
-    songsrc:"my eyes.mp3"
+  imagesrc:"covers1/utopia.jpg",
+    songsrc:"audio1/my eyes.mp3",
     duration:"3:20"
 },
 
 {
     title:"Humble ",
     artist:"Kendrick Lamar",
-  imgsrc:"damn.jpg"
-    songsrc:"humble.mp3"
+  imagesrc:"covers1/damn.jpg",
+    songsrc:"audio1/humble.mp3",
     duration:"2:46"
 },
 {
     title:"we can't be friends ",
     artist:"ariana grande",
-    imgsrc:"sunshine.jpg"
-    songsrc:"we cant be friend.mp3"
+    imagesrc:"covers1/sunshine.jpg",
+    songsrc:"audio1/we cant be friend.mp3",
     duration:"4:16"
 },
 {
     title:"Blind Eyes red ",
     artist:"Minnie",
-  imgsrc:"minnie.jpg"
-    songsrc:"blind eyes red.mp3"
+  imagesrc:"covers1/minnie.jpg",
+    songsrc:"audio1/blind eyes red.mp3",
     duration:" 3:26"
 },
 {
     title:"heavy ",
     artist:"the marias",
-    imgsrc:"marias.jpg"
-    songsrc:"heavy.mp3"
+    imagesrc:"covers1/marias.jpg",
+    songsrc:"audio1/heavy.mp3",
     duration:"3:20"
 },
 {
     title:"drama ",
     artist:"aespa",
-  imgsrc:"aespa.jpg"
-    songsrc:"drama.mp3"
+  imagesrc:"covers1/aespa.jpg",
+    songsrc:"audio1/drama.mp3",
     duration:"3:20"
 },
 {
     title:"best ",
     artist:"gracie abrams",
-  imgsrc:"gracie.jpg"
-    songsrc:"best.mp3"
+  imagesrc:"covers1/gracie.jpg",
+    songsrc:"audio1/best.mp3",
     duration:"3:20"
 },
 {
     title:"bye ",
     artist:"ariana grande",
-  imgsrc:"sunshine.jpg"
-    songsrc:"bye.mp3"
+  imagesrc:"covers1/sunshine.jpg",
+    songsrc:"audio1/bye.mp3",
     duration:"3:20"
-},{
+},
+{
     title:"to say hello ",
     artist:"the marias",    
-    imgsrc:"marias.jpg"
-    songsrc:"to say hello.mp3"
+    imagesrc:"covers1/marias.jpg",
+    songsrc:"audio1/to say hello.mp3",
     duration:"3:20"
 }
 
 
 ];
 
+var albumcover=document.getElementById("cover");
+let songtitle=document.getElementById("title");
+let backwardbtn=document.getElementById("backward");
+let playbtn=document.getElementById("play");
+let forwardbtn=document.getElementById("forward");
+let artist=document.getElementById("artistname");
+
+
+
+albumcover.src=songdetails[1].imagesrc;
+songtitle.innerHTML=songdetails[1].title;
+artist.innerHTML=songdetails[1].artist;
