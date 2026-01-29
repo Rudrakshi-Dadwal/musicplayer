@@ -74,15 +74,19 @@ let songdetails=[
 
 ];
 
-var albumcover=document.getElementById("cover");
-let songtitle=document.getElementById("title");
+var albumcover=document.getElementById("album-art");
+let songtitle=document.querySelector(".track-info h3");
 let backwardbtn=document.getElementById("backward");
-let playbtn=document.getElementById("play");
+ let playbtn=document.getElementById("play");
 let forwardbtn=document.getElementById("forward");
-let artist=document.getElementById("artistname");
+let artist=document.querySelector(".track-info p");
 
 
 
-albumcover.src=songdetails[1].imagesrc;
-songtitle.innerHTML=songdetails[1].title;
-artist.innerHTML=songdetails[1].artist;
+
+
+albumcover.src=songdetails[0].imagesrc;
+songtitle.innerHTML=songdetails[0].title;
+artist.innerHTML=songdetails[0].artist;
+
+

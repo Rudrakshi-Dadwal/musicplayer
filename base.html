@@ -9,61 +9,53 @@
 <body>
     
 
- 
-<div id="playerwrapper">
-<button><i class="fa-regular fa-heart"></i></button>
-<button><i class="fa-solid fa-queue"></i></button>
-<button><i class="fa-solid fa-share-nodes"></i></button>
-</div>
 
 
-<div id="albumcover">
-    <img id="cover" src="" alt="Album Cover" >
-</div>
+  <!-- ROOT CONTAINER -->
+  <div class="app">
 
-<div id="title">
-    <h2></h2>
-    <h1 id="artistname"></h1>
+    <!-- PLAYER CARD -->
+    <div class="player">
+       
+      <!-- ALBUM ART SECTION -->
+      <div class="album-wrapper">
+        <img id="album-art" src="" alt="Album Art">
+      </div>
 
+      <!-- CONTROLS SECTION -->
+      <div class="controls">
 
+        <div class="track-info">
+          <h3></h3>
+          <p></p>
+        </div>
 
+        <div class="progress">
+          <span>0:00</span>
+          <div class="bar">
+            <div class="fill"></div>
+          </div>
+          <span>3:30</span>
+        </div>
 
-<div id="progress-container">
-    <span class="time current">3:48</span>
-    <div id="progress-track">
-      <div id="progress-bar"></div>
+        <div class="buttons">
+          <button id="backward"><i class="fa-solid fa-backward-step"></i></button>
+          <button id="play"><i class="fa-solid fa-play"></i></button>
+          <button id="forward"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+
+      </div>
+
     </div>
-    <span class="time total">0:56</span>
+
   </div>
 
 
 
 
-    <div id="control">
-
-        
-        <button id="backward"><i class="fa-solid fa-backward-step"> </i></button>
-        <button id="play"><i class="fa-solid fa-play"></i></button>
-        <button id="forward"><i class="fa-solid fa-forward-step"></i></button>
-
-       
-    
-</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<audio id="audio-player" src=""></audio>
 
 
 
