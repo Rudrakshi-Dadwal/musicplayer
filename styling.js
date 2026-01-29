@@ -1,17 +1,17 @@
 let songdetails=[
    { title:"Zen",
     artist:"Jennie",
-    duration:"3:12",
+    duration:"3:30",
     imagesrc:"covers1/jennie.jpg",
     songsrc:"audio1/zen.mp3"
 
 },
 {
-    title:"MY Eyes",
-    artist:"travis Scott",
+    title:"My Eyes",
+    artist:"Travis Scott",
   imagesrc:"covers1/utopia.jpg",
     songsrc:"audio1/my eyes.mp3",
-    duration:"3:20"
+    duration:"4:12"
 },
 
 {
@@ -19,61 +19,69 @@ let songdetails=[
     artist:"Kendrick Lamar",
   imagesrc:"covers1/damn.jpg",
     songsrc:"audio1/humble.mp3",
-    duration:"2:46"
+    duration:"2:57"
 },
 {
-    title:"we can't be friends ",
-    artist:"ariana grande",
+    title:"We Can't Be Friends ",
+    artist:"Ariana Grande",
     imagesrc:"covers1/sunshine.jpg",
     songsrc:"audio1/we cant be friend.mp3",
-    duration:"4:16"
+    duration:"3:23"
 },
 {
     title:"Blind Eyes red ",
     artist:"Minnie",
   imagesrc:"covers1/minnie.jpg",
     songsrc:"audio1/blind eyes red.mp3",
-    duration:" 3:26"
+    duration:" 3:47"
 },
 {
-    title:"heavy ",
-    artist:"the marias",
+    title:"Heavy ",
+    artist:"The Marias",
     imagesrc:"covers1/marias.jpg",
     songsrc:"audio1/heavy.mp3",
-    duration:"3:20"
+    duration:"4:13"
 },
 {
-    title:"drama ",
-    artist:"aespa",
+    title:"Drama ",
+    artist:"Aespa",
   imagesrc:"covers1/aespa.jpg",
     songsrc:"audio1/drama.mp3",
-    duration:"3:20"
+    duration:"3:47"
 },
 {
-    title:"best ",
-    artist:"gracie abrams",
+    title:"Best ",
+    artist:"Gracie Abrams",
   imagesrc:"covers1/gracie.jpg",
     songsrc:"audio1/best.mp3",
-    duration:"3:20"
+    duration:"3:53"
 },
 {
-    title:"bye ",
-    artist:"ariana grande",
-  imagesrc:"covers1/sunshine.jpg",
-    songsrc:"audio1/bye.mp3",
-    duration:"3:20"
+    title:"Can You Play Ken ",
+    artist:"Billie Eilish",
+  imagesrc:"covers1/billie.jpg",
+    songsrc:"audio1/ken.mp3",
+    duration:"1:58"
 },
 {
-    title:"to say hello ",
-    artist:"the marias",    
+    title:"To Say Hello ",
+    artist:"The Marias",    
     imagesrc:"covers1/marias.jpg",
     songsrc:"audio1/to say hello.mp3",
-    duration:"3:20"
+    duration:"3:22"
+}
+,
+{
+    title:"MMA Performance By Jennie",
+    artist:"Jennie",    
+    imagesrc:"covers1/jennie mma.jpg",
+    songsrc:"audio1/mma.mp3",
+    duration:"8:40"
 }
 
 
 ];
-
+let player=document.querySelector(".player");
 var albumcover=document.getElementById("album-art");
 let songtitle=document.querySelector(".track-info h3");
 let backwardbtn=document.getElementById("backward");
@@ -123,26 +131,32 @@ audio.currentTime=(progress.value/100)*audio.duration;
 
 
 });
-var isplaying=0;
 
-//playing system
 
-playbtn.addEventListener("click",()=>{
 
-    playbtn.classList="fa-solid fa-pause";
+
+//playing system 
+
+let isplaying = false;
+
+// when playing
+player.classList.add("playing");
+
+// when paused
+player.classList.remove("playing");
+
+playbtn.addEventListener("click", () => {
+  if (!isplaying) {
     audio.play();
-  
-
-
-    if (isplaying==1){
-        audio.pause();
-        playbtn.classList="fa-solid fa-play";
-    }
-    else{
-        isplaying=1;
-    }
-    
-
+    playbtn.classList.remove("fa-play");
+    playbtn.classList.add("fa-pause");
+    isplaying = true;
+  } else {
+    audio.pause();
+    playbtn.classList.remove("fa-pause");
+    playbtn.classList.add("fa-play");
+    isplaying = false;
+  }
 });
 
 //forward system 
@@ -156,6 +170,15 @@ songtitle.innerHTML=songdetails[position].title;
 artist.innerHTML=songdetails[position].artist;
 audio.src=songdetails[position].songsrc;
 time.innerHTML=songdetails[position].duration;
+
+audio.currentTime = 0;
+progress.value = 0;
+
+audio.play();
+playerCard.classList.add("playing");
+  playbtn.classList.remove("fa-play");
+  playbtn.classList.add("fa-pause");
+  isplaying = true;
 
 });
 
@@ -171,7 +194,17 @@ artist.innerHTML=songdetails[position].artist;
 audio.src=songdetails[position].songsrc;
 time.innerHTML=songdetails[position].duration;
 
+audio.play();
+  playbtn.classList.remove("fa-play");
+  playbtn.classList.add("fa-pause");
+  isplaying = true;
+  progress.value = 0;
+
 
 });
 
 
+audio.addEventListener("loadedmetadata", () => {
+  progress.value = 0;
+  timestart.innerHTML = "0:00";
+});

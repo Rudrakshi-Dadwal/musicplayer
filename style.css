@@ -77,6 +77,28 @@ gap: 30px;
  
 }
 
+.buttons button::before,
+.buttons button::after {
+  content: none !important;
+}
+
+
+#progressbar::-webkit-slider-thumb {
+  appearance: none;
+  width: 7px;
+  height: 14px;
+  background: #4d1111;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#progressbar::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #480b0b;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 .progress{
    display: flex;
@@ -150,5 +172,54 @@ gap: 30px;
 }
 
 .track-info h3:hover,.track-info p:hover{
-    color: rgb(204, 204, 204);
+    color: rgb(202, 112, 112);
+}
+
+#progressbar:active {
+  cursor: grabbing;
+}
+
+#progressbar {
+  transition: background-size 0.15s linear;
+}
+
+/* Glow while playing */
+
+
+
+
+.player{
+  box-shadow:
+    0 0 20px rgba(255, 77, 77, 0.5),
+    0 0 40px rgba(255, 77, 77, 0.35),
+    0 0 60px rgba(255, 77, 77, 0.2);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+
+/* Glow animation */
+@keyframes glowPulse {
+  0% {
+    box-shadow:
+      0 0 15px rgba(255, 77, 77, 0.4),
+      0 0 30px rgba(255, 77, 77, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(255, 77, 77, 0.7),
+      0 0 60px rgba(255, 77, 77, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 15px rgba(255, 77, 77, 0.4),
+      0 0 30px rgba(255, 77, 77, 0.25);
+  }
+}
+
+
+
+
+.time{
+    color: rgb(0, 0, 0);
+    font-family: 'Arial', sans-serif;
 }
