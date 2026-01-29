@@ -77,16 +77,101 @@ let songdetails=[
 var albumcover=document.getElementById("album-art");
 let songtitle=document.querySelector(".track-info h3");
 let backwardbtn=document.getElementById("backward");
- let playbtn=document.getElementById("play");
+let playbtn=document.getElementById("play");
 let forwardbtn=document.getElementById("forward");
 let artist=document.querySelector(".track-info p");
-
-
-
-
+let progress=document.getElementById("progressbar");
+let audio=document.getElementById("audio-player");
+let time=document.getElementById("timebar");
+let timestart=document.getElementById("timestart");
 
 albumcover.src=songdetails[0].imagesrc;
 songtitle.innerHTML=songdetails[0].title;
 artist.innerHTML=songdetails[0].artist;
+audio.src=songdetails[0].songsrc;
+time.innerHTML=songdetails[0].duration;
+
+
+//time update system
+
+function formatTime(seconds){
+
+    let mins=Math.floor(seconds/60);
+    let secs=Math.floor(seconds%60);
+    return `${mins}:${secs<10?'0':''}${secs}`;}
+    audio.addEventListener("timeupdate",()=>{
+
+
+        let currentTime=formatTime(audio.currentTime);
+        let duration=formatTime(audio.duration);
+        timestart.innerHTML=`${currentTime}`;
+    });
+
+
+
+
+
+audio.addEventListener("timeupdate",()=>{
+
+   progress.value=(audio.currentTime/audio.duration)*100;
+});
+
+progress.addEventListener("input",()=>{
+
+audio.currentTime=(progress.value/100)*audio.duration;
+
+
+
+});
+var isplaying=0;
+
+//playing system
+
+playbtn.addEventListener("click",()=>{
+
+    playbtn.classList="fa-solid fa-pause";
+    audio.play();
+  
+
+
+    if (isplaying==1){
+        audio.pause();
+        playbtn.classList="fa-solid fa-play";
+    }
+    else{
+        isplaying=1;
+    }
+    
+
+});
+
+//forward system 
+
+var position=0;
+forwardbtn.addEventListener("click",()=>{
+            position+=1;
+ 
+albumcover.src=songdetails[position].imagesrc;
+songtitle.innerHTML=songdetails[position].title;
+artist.innerHTML=songdetails[position].artist;
+audio.src=songdetails[position].songsrc;
+time.innerHTML=songdetails[position].duration;
+
+});
+
+
+//backward system
+
+backwardbtn.addEventListener("click",()=>{
+    position-=1;
+
+albumcover.src=songdetails[position].imagesrc;
+songtitle.innerHTML=songdetails[position].title;
+artist.innerHTML=songdetails[position].artist;
+audio.src=songdetails[position].songsrc;
+time.innerHTML=songdetails[position].duration;
+
+
+});
 
 
